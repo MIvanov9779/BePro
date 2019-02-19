@@ -122,24 +122,9 @@ class Operation {
     public boolean writeUser(User user) {
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.file, true))) {
-            writer.write(user.getLogin());
+            writer.write(user.getLogin() + ":" +user.getPassword()+":" + "n"+ ":"+ "n"+ ":" + "n"+ ":" + "n"+ ":" + "n");
             writer.newLine();
-            writer.write(user.getPassword());
-            writer.newLine();
-            writer.write(user.getEmail() + "");
-            writer.newLine();
-            //New Lines
-            writer.write(user.getPhoneNumber() + "");
-            writer.newLine();
-            writer.write(user.getName() + "");
-            writer.newLine();
-            writer.write(user.getEastName() + "");
-            writer.newLine();
-            writer.write(user.getMiddleName() + "");
-            writer.newLine();
-      /**/
 
-//End of new lines
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
             return false;
@@ -152,20 +137,16 @@ class Operation {
     public ArrayList<User> getUsers() {
         ArrayList<User> result = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(this.file))) {
-            String Login;
-            while ((Login = reader.readLine()) != null) {
-                String Password = reader.readLine();
-                User user = new User(Login, Password);
-                user.setEmail(reader.readLine());
+            String line;
+            while ((line = reader.readLine()) != null) {
+               String[] date = line.split(":");
 
-                //New Lines
-                user.setName(reader.readLine());
-                user.setMiddleName(reader.readLine());
-                user.setEastName(reader.readLine());
-                user.setPhoneNumber(reader.readLine());
-
-
-                //end of new lines
+               User user = new User(date[0], date[1]);
+               user.setName(date[2]);
+               user.setEastName(date[3]);
+               user.setMiddleName(date[4]);
+               user.setEmail(date[5]);
+               user.setPhoneNumber(date[6]);
                 result.add(user);
             }
         } catch (IOException ex) {
@@ -181,26 +162,22 @@ class Operation {
             String line;
 
             while ((line = reader.readLine()) != null) {
-                String Password = reader.readLine();
-                String Email = reader.readLine();
-                String PhoneNumber = reader.readLine();
-                String Name = reader.readLine();
-                String EastName = reader.readLine();
-                String MiddleName = reader.readLine();
-                if (line.equals(Login)) {
-                    User user = new User(line, Password);
-                    user.setEmail(Email);
+                String[] date = line.split(":");
 
-                    //new lines
-                    user.setPhoneNumber(PhoneNumber);
-                    user.setName(Name);
-                    user.setEastName(EastName);
-                    user.setMiddleName(MiddleName);
-                    //end of new lines
+                if (date[0].equals(Login)){
+                    User user = new User(date[0], date[1]);
+                    user.setName(date[2]);
+                    user.setEastName(date[3]);
+                    user.setMiddleName(date[4]);
+                    user.setEmail(date[5]);
+                    user.setPhoneNumber(date[6]);
                     return user;
+                }
+
+
 
                 }
-            }
+
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
@@ -242,7 +219,7 @@ class Operation {
 
 
         if (operation == 1) {
-             Edit(user);
+            Edit(user);
         } else if (operation == 2) {
             ConfirmDelete(user);
         } else if (operation == 3) {
@@ -264,68 +241,83 @@ class Operation {
     }
 
 
-public void Edit(User user){
+    public void Edit(User user) {
 
-    String Name = "";
-    String EastName = "";
-    String MiddleName = "";
-    String Email = "";
-    String PhoneNumber = "";
 
+        ArrayList<User> users = getUsers();
+
+        String Name = "";
+        String EastName = "";
+        String MiddleName = "";
+        String Email = "";
+        String PhoneNumber = "";
 
 
         Scanner scanner = new Scanner(System.in);
-    System.out.println("Enter your name:");
-    Name = scanner.next();
-    user.setName(Name);
-
-    System.out.println("Enter your East Name");
-    EastName = scanner.next();
-    user.setEastName(EastName);
-
-    System.out.println("Enter your middle name");
-    MiddleName = scanner.next();
-    user.setMiddleName(MiddleName);
-
-    System.out.println("Enter your Email:");
-    Email = scanner.next();
-    user.setEmail(Email);
-
-
-    System.out.println("Enter your phone number:");
-    PhoneNumber = scanner.next();
-    user.setPhoneNumber(PhoneNumber);
-
-
-
-}
-
-    public boolean exist(String Login){
-
-            ArrayList<User>users = getUsers();
+        System.out.println("Enter your name:");
+        Name = scanner.next();
+        user.setName(Name);
+        System.out.println("Enter your East Name");
+        EastName = scanner.next();
+        user.setEastName(EastName);
+        System.out.println("Enter your middle name");
+        MiddleName = scanner.next();
+        user.setMiddleName(MiddleName);
+        System.out.println("Enter your Email:");
+        Email = scanner.next();
+        user.setEmail(Email);
+        System.out.println("Enter your phone number:");
+        PhoneNumber = scanner.next();
+        user.setPhoneNumber(PhoneNumber);
 
 
         for (int i = 0; i <users.size(); i++) {
-            if (users.get(i).getLogin().equals(Login)){
+            users.set(i, user);
+
+            break;
+        }
+
+
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(this.file))){
+            for (int i = 0; i <users.size() ; i++) {
+                User u = users.get(i);
+                writer.write(u.getLogin()+":" + u.getPassword() + ":" + u.getName() + ":" + u.getEastName()+ ":" + u.getMiddleName() + ":" + u.getEmail() + ":" + u.getPhoneNumber());
+                writer.newLine();
+            }
+        }catch (IOException ex){
+            ex.getMessage();
+        }
+
+    }
+
+    public boolean exist(String Login) {
+
+        ArrayList<User> users = getUsers();
+
+
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getLogin().equals(Login)) {
                 return true;
             }
         }
         return false;
     }
 
-   /* public void deleteUser(User user){
+/*
+    public void deleteUser(User user){
         for (int i = 0; i <users.size() ; i++) {
             if (users.get(i).getLogin().equals(user.getLogin())){
                 users.remove(i);
                 return;
             }
         }
-    }*/
+    }
+*/
 
-    public void allUsers(){
+    public void allUsers() {
         System.out.println("Users: ");
         ArrayList<User> users = getUsers();
-        for (int i = 0; i <users.size() ; i++) {
+        for (int i = 0; i < users.size(); i++) {
 
             System.out.println(users.get(i).getLogin());
 
@@ -334,8 +326,7 @@ public void Edit(User user){
     }
 
 
-
-    public void ConfirmDelete(User user){
+    public void ConfirmDelete(User user) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Confirm delete your user? ");
 
@@ -345,9 +336,9 @@ public void Edit(User user){
 
         int operation = scanner.nextInt();
 
-        if (operation == 1){
+        if (operation == 1) {
             //    deleteUser(user);
-        }else if (operation == 2){
+        } else if (operation == 2) {
             return;
         }
 
@@ -383,29 +374,27 @@ public void WriteMessage(){
 }*/
 
 
-public void Transfer(User from){
+    public void Transfer(User from) {
 
         Scanner scanner = new Scanner(System.in);
 
         ArrayList<User> users = getUsers();
 
-    System.out.println("Users: ");
-    for (int i = 0; i <users.size() ; i++) {
-        System.out.println(i + ". " + "Name: " + users.get(i).getLogin());
+        System.out.println("Users: ");
+        for (int i = 0; i < users.size(); i++) {
+            System.out.println(i + ". " + "Name: " + users.get(i).getLogin());
+
+        }
+        System.out.println("\n");
+
+        System.out.print("Enter id: ");
+        int ID = scanner.nextInt();
+        System.out.println("Enter transfer amount: ");
+        double amount = scanner.nextDouble();
 
     }
 
-        System.out.println();
 
-    System.out.print("Enter id: ");
-        int ID = scanner.nextInt();
-    System.out.println("Enter transfer amount: ");
-        double amount = scanner.nextDouble();
-
-
-
-
-}
 
 
 

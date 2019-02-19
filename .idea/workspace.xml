@@ -14,36 +14,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Operation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-575">
-              <caret line="212" column="36" lean-forward="true" selection-start-line="212" selection-start-column="36" selection-end-line="212" selection-end-column="36" />
+            <state relative-caret-position="1905">
+              <caret line="385" lean-forward="true" selection-start-line="385" selection-end-line="385" />
               <folding>
-                <element signature="method#Operation#0;class#Operation#0" />
-                <element signature="method#start#0;class#Operation#0" />
-                <element signature="method#SignIn#0;class#Operation#0" />
-                <element signature="method#SingUp#0;class#Operation#0" />
-                <element signature="method#writeUser#0;class#Operation#0" />
-                <element signature="method#getUsers#0;class#Operation#0" />
-                <element signature="method#getUser#0;class#Operation#0" />
-                <element signature="method#Edit#0;class#Operation#0" />
                 <element signature="method#exist#0;class#Operation#0" />
-                <element signature="method#allUsers#0;class#Operation#0" />
-                <element signature="method#ConfirmDelete#0;class#Operation#0" />
-                <element signature="method#Transfer#0;class#Operation#0" />
-                <element signature="method#Deposit#0;class#Operation#0" />
-                <element signature="method#Withdraw#0;class#Operation#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/users.txt">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="184">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -71,24 +58,28 @@
         <option value="$PROJECT_DIR$/src/User.java" />
         <option value="$PROJECT_DIR$/Users.txt" />
         <option value="$PROJECT_DIR$/src/Main11.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/users.txt" />
         <option value="$PROJECT_DIR$/src/Operation.java" />
+        <option value="$PROJECT_DIR$/users.txt" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="160" />
-    <option name="width" value="1245" />
-    <option name="height" value="1040" />
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="115" />
+    <option name="width" value="740" />
+    <option name="height" value="980" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -105,10 +96,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550433215935" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550588563655" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Mudue 2" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -168,7 +161,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.087248325" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.087248325" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -182,15 +175,15 @@
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32794118" />
       <window_info anchor="bottom" id="TODO" order="8" weight="0.3286119" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.32794118" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.94617563" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24966443" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.3295302" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
@@ -321,17 +314,10 @@
     <entry file="file://$PROJECT_DIR$/Lesson05.02.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2057">
-          <caret line="121" column="31" lean-forward="true" selection-start-line="121" selection-start-column="31" selection-end-line="121" selection-end-column="31" />
+        <state relative-caret-position="527">
+          <caret line="121" column="31" selection-start-line="121" selection-start-column="31" selection-end-line="121" selection-end-column="31" />
           <folding>
             <element signature="e#462#463#0" expanded="true" />
             <element signature="e#500#501#0" expanded="true" />
@@ -377,33 +363,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/users.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Operation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-575">
-          <caret line="212" column="36" lean-forward="true" selection-start-line="212" selection-start-column="36" selection-end-line="212" selection-end-column="36" />
+        <state relative-caret-position="1905">
+          <caret line="385" lean-forward="true" selection-start-line="385" selection-end-line="385" />
           <folding>
-            <element signature="method#Operation#0;class#Operation#0" />
-            <element signature="method#start#0;class#Operation#0" />
-            <element signature="method#SignIn#0;class#Operation#0" />
-            <element signature="method#SingUp#0;class#Operation#0" />
-            <element signature="method#writeUser#0;class#Operation#0" />
-            <element signature="method#getUsers#0;class#Operation#0" />
-            <element signature="method#getUser#0;class#Operation#0" />
-            <element signature="method#Edit#0;class#Operation#0" />
             <element signature="method#exist#0;class#Operation#0" />
-            <element signature="method#allUsers#0;class#Operation#0" />
-            <element signature="method#ConfirmDelete#0;class#Operation#0" />
-            <element signature="method#Transfer#0;class#Operation#0" />
-            <element signature="method#Deposit#0;class#Operation#0" />
-            <element signature="method#Withdraw#0;class#Operation#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/users.txt">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="184">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
