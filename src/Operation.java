@@ -315,10 +315,10 @@ class Operation {
 */
 
     public void allUsers() {
+
         System.out.println("Users: ");
         ArrayList<User> users = getUsers();
         for (int i = 0; i < users.size(); i++) {
-
             System.out.println(users.get(i).getLogin());
 
         }
@@ -327,6 +327,8 @@ class Operation {
 
 
     public void ConfirmDelete(User user) {
+
+        ArrayList<User> users = getUsers();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Confirm delete your user? ");
 
@@ -336,10 +338,21 @@ class Operation {
 
         int operation = scanner.nextInt();
 
-        if (operation == 1) {
-            //    deleteUser(user);
-        } else if (operation == 2) {
-            return;
+        if (operation == 1){
+
+            try(BufferedWriter writer = new BufferedWriter(new FileWriter(this.file))){
+                for (int i = 0; i <users.size() ; i++) {
+                    users.remove(i);
+                    start();
+                    break;
+
+                }
+            }catch (IOException e){
+                e.getMessage();
+            }
+
+        }else if (operation == 2){
+            Personal(user);
         }
 
     }
