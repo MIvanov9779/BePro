@@ -275,7 +275,6 @@ class Operation {
         for (int i = 0; i <users.size(); i++) {
             if (users.get(i).getLogin().equals(user.getLogin())) {
                 users.set(i, user);
-
                 break;
             }
         }
@@ -335,7 +334,6 @@ class Operation {
                 for (int i = 0; i <users.size() ; i++) {
                     if (users.get(i).getLogin().equals(user.getLogin())){
                         users.remove(i);
-
                         break;
                     }
                 }
