@@ -1,5 +1,6 @@
 import javax.jws.soap.SOAPBinding;
 import java.io.*;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -31,7 +32,8 @@ class Operation {
             System.out.println("1. Sign In.");
             System.out.println("2. Sing Up.");
             System.out.println("3. Users.");
-            System.out.println("4.Exit.");
+            System.out.println("4.Admin panel.");
+            System.out.println("5.Exit.");
             option = scanner.nextInt();
 
             if (option == 1) {
@@ -40,11 +42,13 @@ class Operation {
                 SingUp();
             } else if (option == 3) {
                 allUsers();
-            } else if (option == 4) {
+            }else if (option == 4){
+                AdminLogin();
+            }else if (option == 5) {
                 break;
             }
 
-        } while (option != 4);
+        } while (option != 5);
 
     }
 
@@ -429,5 +433,89 @@ public void Withdraw (User user){
     }
     System.out.println();
 }
+
+
+
+
+public void AdminLogin(){
+    Scanner scanner = new Scanner(System.in);
+    ArrayList<User> users = getUsers();
+    String Login;
+    String Password;
+
+    System.out.println("Enter your login: ");
+    Login = scanner.next();
+    System.out.println("Enter your password: ");
+    Password = scanner.next();
+
+    User user = getUser(Login);
+
+    if (user == null) {
+        System.out.println("No user exists");
+        return;
+    }
+    if (!user.getPassword().equals(Password)) {
+        System.out.println("Password is't correct");
+        return;
+    }
+    System.out.println("Admin Panel: ");
+    AdminPanel(user);
 }
 
+public void AdminPanel(User user){
+    Scanner scanner = new Scanner(System.in);
+    ArrayList<User> users = getUsers();
+
+    System.out.println("1. Users.");
+    System.out.println("2.Delete all users");
+    System.out.println("3.Edit users.");
+    System.out.println("4.Main menu");
+
+    int option = scanner.nextInt();
+
+    if (option == 1){
+        System.out.println("Users: ");
+
+        for (int i = 0; i <users.size(); i++) {
+            System.out.println(users.get(i).getLogin());
+        }
+
+        AdminPanel(user);
+
+        System.out.println("\n");
+
+    }else if (option == 2){
+
+        Scanner in = new Scanner(System.in);
+        System.out.println("Delete?");
+        System.out.println("Yes");
+        System.out.println("No");
+
+        int operation = in.nextInt();
+
+        if (operation == 1){
+            for (int i = 0; i <users.size() ; i++) {
+                users.remove(i);
+                break;
+            }
+        }else if (operation == 2){
+            AdminPanel(user);
+        }
+
+    }else if (option == 3){
+/*
+        for (int i = 0; i <users.size() ; i++) {
+            if (users.get(i).equals(user.getLogin())){
+
+            }
+        }
+*/
+
+    return;
+    }else if (option == 4){
+        start();
+    }
+
+}
+
+}
