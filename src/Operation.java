@@ -122,7 +122,7 @@ class Operation {
     public boolean writeUser(User user) {
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.file, true))) {
-            writer.write(user.getLogin() + ":" +user.getPassword()+":" + "n"+ ":"+ "n"+ ":" + "n"+ ":" + "n"+ ":" + "n");
+            writer.write(user.getLogin() + ":" +user.getPassword()+":" + "..."+ ":"+ "..."+ ":" + "..."+ ":" + "..."+ ":" + "...");
             writer.newLine();
 
         } catch (IOException ex) {
@@ -147,6 +147,7 @@ class Operation {
                user.setMiddleName(date[4]);
                user.setEmail(date[5]);
                user.setPhoneNumber(date[6]);
+
                 result.add(user);
             }
         } catch (IOException ex) {
@@ -229,7 +230,7 @@ class Operation {
         } else if (operation == 5) {
             Withdraw(user);
         } else if (operation == 6) {
-            Transfer(user);
+           // Transfer(user);
         } else if (operation == 7) {
             return;
         }
@@ -303,16 +304,6 @@ class Operation {
         return false;
     }
 
-/*
-    public void deleteUser(User user){
-        for (int i = 0; i <users.size() ; i++) {
-            if (users.get(i).getLogin().equals(user.getLogin())){
-                users.remove(i);
-                return;
-            }
-        }
-    }
-*/
 
     public void allUsers() {
 
@@ -327,7 +318,6 @@ class Operation {
 
 
     public void ConfirmDelete(User user) {
-
         ArrayList<User> users = getUsers();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Confirm delete your user? ");
@@ -340,16 +330,24 @@ class Operation {
 
         if (operation == 1){
 
+                for (int i = 0; i <users.size() ; i++) {
+                    if (users.get(i).getLogin().equals(user.getLogin())){
+                        users.remove(i);
+                        break;
+                    }
+                }
+
+
             try(BufferedWriter writer = new BufferedWriter(new FileWriter(this.file))){
                 for (int i = 0; i <users.size() ; i++) {
-                    users.remove(i);
-                    start();
-                    break;
-
+                    User u = users.get(i);
+                    writer.write(u.getLogin()+":" + u.getPassword() + ":" + u.getName() + ":" + u.getEastName()+ ":" + u.getMiddleName() + ":" + u.getEmail() + ":" + u.getPhoneNumber());
+                    writer.newLine();
                 }
-            }catch (IOException e){
-                e.getMessage();
+            }catch (IOException ex){
+                ex.getMessage();
             }
+
 
         }else if (operation == 2){
             Personal(user);
@@ -358,35 +356,8 @@ class Operation {
     }
 
 
-/*public void Messages(){
 
-        Scanner scanner = new Scanner(System.in);
-    System.out.println("1.New messages");
-    System.out.println("2.Write message");
-    System.out.println("3.Main menu");
-
-    int operator = scanner.nextInt();
-
-
-    if (operator == 1){
-
-    }else if (operator == 2){
-
-    }else if (operator == 3){
-        return;
-    }
-
-}
-
-public void NewMessage(){
-
-}
-
-public void WriteMessage(){
-
-}*/
-
-
+/*
     public void Transfer(User from) {
 
         Scanner scanner = new Scanner(System.in);
@@ -406,13 +377,14 @@ public void WriteMessage(){
         double amount = scanner.nextDouble();
 
     }
+*/
 
 
 
 
 
 public void Deposit(User user){
-
+        ArrayList<User> users = getUsers();
     System.out.println("Enter amount");
         Scanner scanner = new Scanner(System.in);
    double amount = scanner.nextDouble();
@@ -421,6 +393,17 @@ public void Deposit(User user){
 
     if(success){
               System.out.println("The deposit");
+
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(this.file))) {
+            for (int i = 0; i <users.size() ; i++) {
+                User u = users.get(i);
+            }
+
+
+        }catch (IOException ex){
+            ex.getMessage();
+        }
+
     }else{
         System.out.println("Error");
     }
@@ -431,7 +414,7 @@ public void Deposit(User user){
 
 
 public void Withdraw (User user){
-
+    ArrayList<User> users = getUsers();
     System.out.println("Enter withdraw amount");
 
     Scanner scanner = new Scanner(System.in);
