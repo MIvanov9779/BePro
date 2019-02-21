@@ -273,9 +273,11 @@ class Operation {
 
 
         for (int i = 0; i <users.size(); i++) {
-            users.set(i, user);
+            if (users.get(i).getLogin().equals(user.getLogin())) {
+                users.set(i, user);
 
-            break;
+                break;
+            }
         }
 
 
@@ -333,10 +335,10 @@ class Operation {
                 for (int i = 0; i <users.size() ; i++) {
                     if (users.get(i).getLogin().equals(user.getLogin())){
                         users.remove(i);
+
                         break;
                     }
                 }
-
 
             try(BufferedWriter writer = new BufferedWriter(new FileWriter(this.file))){
                 for (int i = 0; i <users.size() ; i++) {
@@ -347,7 +349,7 @@ class Operation {
             }catch (IOException ex){
                 ex.getMessage();
             }
-
+            start();
 
         }else if (operation == 2){
             Personal(user);
