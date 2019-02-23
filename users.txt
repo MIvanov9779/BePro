@@ -1,5 +1,2 @@
-Ben:123:Ben:Jamin:Franklin:Ben@mail.com:7767584343
-John:123:John:Ben:Laden:John@mail.com:12345
-Johnatan:123:John:Martin:Logan:John@mail.com:12345
-Garold:123:Garold:Suk:Tuk:gar@mail.com:222333444
-Troy:123:Troy:Tray:Troyt:Troy@mail.com:123
+Ben:123:...:...:...:...:...:7876.0
+John:123:...:...:...:...:...:1000.0
